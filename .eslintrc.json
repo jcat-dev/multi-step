@@ -1,0 +1,30 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "keyword-spacing": ["error", { "before": true }],
+    "space-before-function-paren": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "space-infix-ops": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "brace-style": "error",
+    "curly": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "operator-linebreak": ["error", "before"],
+    "block-spacing": "error",
+    "camelcase": "error",
+    "comma-dangle": ["error", "never"],
+    "dot-location": ["error", "property"],
+    "key-spacing": ["error", { "beforeColon": false }],
+    "new-cap": ["error", { "newIsCap": true }],
+    "no-const-assign": "error",
+    "no-constant-condition": "error",
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-duplicate-imports": "error",
+    "space-before-blocks": "error",
+    "semi": ["error", "never"]
+  }
+}

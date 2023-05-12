@@ -1,0 +1,90 @@
+.step-container {
+  width: 100%;
+  height: 100%;
+  padding: 14.5% 12%;
+
+  background-image: url(../../assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  border-radius: 0.5em;
+  background-size: cover;
+}
+
+.step {
+  width: 100%;
+  height: fit-content;  
+  margin-bottom: 15%;
+
+  display: grid;
+  grid-template-columns: 23% auto;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+    "number info"
+    "number title";
+}
+
+.step__number {
+  grid-area: number;
+
+  width: 2.05em;
+  height: 2.05em;
+  border: 1px solid var(--white-color);
+
+  border-radius: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.step__number--active {
+  background-color: var(--lightBlue-color);
+  color: var(--marineBlue-color);
+  text-shadow: 0 0 1px var(--marineBlue-color);
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+
+.step__info {
+  grid-area: info;
+  
+  height: fit-content;
+
+  color: var(--coolGray-color);
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  text-shadow: 0 0 1px var(--coolGray-color);
+}
+
+.step__title {
+  grid-area: title;
+
+  width: 100%;
+  height: fit-content;
+
+  color: var(--white-color);
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  text-shadow: 0 0 1px var(--white-color);
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  .step-container {
+    padding: min(1.4em, 6%);
+
+    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+  }
+
+  .step {
+    width: fit-content;
+    margin: 2.5%;    
+  }
+
+  .step__info, .step__title {
+    display: none;
+  }
+}

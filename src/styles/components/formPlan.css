@@ -1,0 +1,176 @@
+.plan {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+}
+
+.plan-card {
+  width: 30.9%;
+  height: max-content;
+  padding: 4.5% 3.2%;
+  padding-bottom: 4%;
+  
+  border: 1px solid var(--lightGray-color);
+  border-radius: 7.5px;
+}
+
+.plan-card--active {
+  border-color: var(--purplishBlue-color);
+  background-color: var(--alabaster-color);
+}
+
+.plan-card:hover {
+  cursor: pointer;
+  border-color: var(--purplishBlue-color);
+}
+
+.plan-card__icon {
+  margin-bottom: 37%;
+}
+
+.plan-card__title {
+  width: 100%;
+  margin-bottom: 1%;
+
+  color: var(--marineBlue-color);
+  font-weight: 700;
+  display: block;
+  text-transform: capitalize;
+}
+
+.plan-card__info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.plan-card__total-price {  
+  width: 100%;
+
+  color: var(--coolGray-color);
+  display: block;
+  font-size: 0.85em;
+}
+
+.plan-card__months-free {
+  width: 100%;
+
+  color: var(--marineBlue-color);
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.plan-select {
+  width: 100%;
+  margin-top: 6%;
+
+  display: flex;
+  justify-content: center;
+  background-color: var(--alabaster-color);
+
+}
+
+.plan-select__monthly {
+  height: 100%;
+  margin: auto 0;
+
+  display: flex;
+  justify-content: right;
+  align-items: center;  
+  color: var(--coolGray-color);
+  text-align: right;
+}
+
+.plan-select__monthly--active {
+  color: var(--marineBlue-color);
+  font-weight: 700;
+}
+
+.plan-select__switch {
+  width: 2.5em;
+  height: 1.25em;
+  margin: 3% 5%;
+
+  background-color: var(--marineBlue-color);
+  border-radius: 0.65em;
+  display: flex;
+}
+
+.plan-select__switch--monthly::after, .plan-select__switch--yearly::after {
+  content: " ";
+  width: 0.78em;
+  height: 0.78em;
+  margin: auto;
+  
+  display: block;
+  border-radius: 0.62em;
+  background-color: var(--white-color);
+}
+
+.plan-select__switch--monthly::after {
+  margin-left: 0.25em;
+}
+
+.plan-select__switch--yearly::after {
+  margin-right: 0.25em;
+}
+
+.plan-select__yearly {
+  height: 100%;
+  margin: auto 0;
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: var(--coolGray-color);
+}
+
+.plan-select__yearly--active {
+  color: var(--marineBlue-color);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 767px) {
+  .plan-card {
+    width: min(19em, 100%);
+    margin: auto;
+    margin-bottom: min(0.95em, 5%);
+    padding: min(1em, 5.3%) min(1em, 5%);
+
+    display: grid;
+    grid-template-columns: 21% auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+      "card-icon card-title"
+      "card-icon card-info";
+  }
+
+  .plan-card__icon {
+    grid-area: card-icon;
+
+    margin: 0;
+  }
+
+  .plan-card__title {
+    grid-area: card-title;
+  }
+
+  .plan-card__info {
+    grid-area: card-info;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .plan-select {
+    margin-top: 2%;
+  }
+  
+  .plan-select__switch {
+    margin: min(1.05em, 5.5%) min(1.5em, 8%);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .plan-card__info {
+    flex-wrap: wrap;
+  }
+}

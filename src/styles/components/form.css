@@ -1,0 +1,121 @@
+.form {
+  width: 65.3vw;
+  height: 74vh;
+  margin: auto;
+  padding: 1.1%;
+  padding-right: 0;
+
+  background-color: var(--white-color);
+  border-radius: 1em;
+  box-shadow: 1px 25px 40px -20px var(--lightGray-color);
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 89% 11%;
+  grid-template-areas: 
+    "form-sidebar form-content"
+    "form-sidebar form-btn";
+}
+
+.form-sidebar {
+  grid-area: form-sidebar;
+}
+
+.form-content {
+  grid-area: form-content;
+}
+
+.form-btn{
+  grid-area: form-btn;
+  width: 70%;
+  height: 80%;
+  margin: 0 auto auto auto;
+
+  display: flex;
+}
+
+.form-btn[hidden] {
+  display: none;
+}
+
+.form-btn__prev {
+  width: 28%;
+  margin-right: auto;
+
+  font-size: 1em;
+  font-family: inherit;
+  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--coolGray-color);
+  border-radius: 0.62em;
+  text-align: left;
+}
+
+.form-btn__prev:hover {
+  cursor: pointer;
+  color: var(--marineBlue-color);
+  font-weight: 700;
+}
+
+.form-btn__next {
+  width: 28%;
+  margin-left: auto;
+
+
+  font-size: 1em;
+  font-family: inherit;
+  color: var(--white-color);
+  border-radius: 0.62em;
+}
+
+.form-btn__next--purple-bg {
+  background-color: var(--purplishBlue-color);
+}
+
+.form-btn__next--purple-bg:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.form-btn__next--blue-bg {
+  background-color: var(--marineBlue-color);
+}
+
+.form-btn__next--blue-bg:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.form-btn__next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 24.8% auto 10.25%;
+    grid-template-areas: 
+      "form-sidebar"
+      "form-content"
+      "form-btn";
+  }
+  .form-content {
+    background-color: var(--magnolia-color);
+    position: relative;
+  }
+
+  .form-btn {
+    width: 92%;
+    height: 55%;
+    margin: min(1.2em, 4%) auto auto auto;
+  }
+
+  .form-btn__next, .form-btn__prev {
+    font-size: 0.9em;
+    border-radius: 0.3em;
+  }
+}

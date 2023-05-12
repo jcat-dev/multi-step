@@ -1,0 +1,29 @@
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 9.28px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 11.84px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  body {
+    font-size: 27.2px;
+  }
+}

@@ -1,0 +1,80 @@
+.complement {
+  padding: 4.5% 5%;
+  margin-bottom: 4%;
+  border: 1px solid var(--lightGray-color);
+
+  border-radius: 0.625em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.complement:hover {
+  border-color: var(--purplishBlue-color);
+}
+
+.complement--active {
+  background-color: var(--alabaster-color);
+  border-color: var(--purplishBlue-color);
+}
+
+.complement-check {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 6%;
+  margin-left: 0;
+  padding: 1%;
+  border: 1px solid var(--lightGray-color);
+
+  border-radius: 4px;
+}
+
+.complement-check--active {
+  background-color: var(--purplishBlue-color);
+  border-color: var(--purplishBlue-color);
+}
+
+.complement-text {
+  width: fit-content;
+  color: var(--coolGray-color);
+}
+
+.complement-text__title {
+  margin-bottom: 2.5%;
+
+  color: var(--marineBlue-color);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.complement-text__info {
+  font-size: 0.95em;
+}
+
+.complement-price {
+  width: fit-content;
+  margin-left: auto;
+
+  color: var(--purplishBlue-color);
+}
+
+@media screen and (max-width: 767px) {
+  .complement {
+    font-size: 0.9em;
+    padding: min(1em, 4.5%) min(1.1em, 5%);
+    margin-bottom: min(0.85em, 4%);
+  }
+
+  .complement-check {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  .complement-text__info {
+    font-size: 0.85em;
+  }
+
+  .complement-price {
+    font-size: 0.9em;
+  }
+}

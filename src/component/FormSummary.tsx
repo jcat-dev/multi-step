@@ -27,8 +27,7 @@ const FormSummary: React.FC<Props> = ({children}) => {
         <div className="summary-plan" >
           <div className="summary-plan__info" >
             <div className="summary-plan__info-title">              
-              {
-                
+              {                
                 `${planSummary?.title} (${period})`
               }
             </div>
@@ -42,18 +41,12 @@ const FormSummary: React.FC<Props> = ({children}) => {
             </button>
           </div>
           
-          {
-            planSummary?.periodWithPrice.map((value, index) => (
-              <div 
-                key={index} 
-                className="summary-plan__total"
-              >
-                {
-                  `$${value.price}/${value.period.slice(0, 2)}`
-                }
-              </div>
-            ))
-          }                 
+          <div className="summary-plan__total" >
+            {
+              `$${planSummary?.periodWithPrice[0].price}/${period.slice(0, 2)}`
+            }
+          </div>
+                        
         </div>
 
         <ul className="summary-complement">

@@ -60,7 +60,7 @@ const Form: React.FC<Props> = ({values}) => {
         <button 
           className='form-btn__next form-btn__next--blue-bg'
           type="button"
-          onClick={handleNextClick}
+          onClick={() => handleNextClick()}
           hidden={counter === STEPS.length}
           disabled={
             (counter === 2 && !Boolean(planSummary)) || (!values.dirty || !values.isValid) 
@@ -73,7 +73,11 @@ const Form: React.FC<Props> = ({values}) => {
           className='form-btn__next form-btn__next--purple-bg'
           hidden={counter !== STEPS.length}          
           type="submit"
-          onClick={handleNextClick}
+          onClick={
+            STEPS.length === counter 
+              ? handleNextClick
+              : undefined
+          }
         >
               Confirm
         </button>

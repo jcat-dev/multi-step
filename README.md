@@ -3,7 +3,7 @@
 ## Solution
 ![](./src/assets/design/desktop.png)
 <div align="center">
-  ![](./src/assets/design/mobile.png)
+  <img src="./src/assets/design/mobile.png" />
 </div>
 
 ## The challenge

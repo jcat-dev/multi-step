@@ -10,11 +10,13 @@
 
 .label {
   margin-bottom: 0.6em;
+  
   font-size: 0.9em;
   font-weight: 700;
 }
 
 .error-msg {
+  font-size: 0.9em;
   color: var(--strawberryRed-color);
   font-weight: 700;
 }

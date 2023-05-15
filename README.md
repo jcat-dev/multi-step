@@ -2,7 +2,9 @@
 
 ## Solution
 ![](./src/assets/design/desktop.png)
-![](./src/assets/design/mobile.png)
+<div align="center">
+  ![](./src/assets/design/mobile.png)
+</div>
 
 ## The challenge
 Users should be able to:
@@ -15,7 +17,6 @@ Users should be able to:
 - Receive form validation messages if:
   - A field has been missed
   - The email address is not formatted correctly
-  - A step is submitted, but no selection has been made
 
 ## Links
 - Solution URL: [Add solution URL here](https://your-solution-url.com)

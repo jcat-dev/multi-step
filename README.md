@@ -19,8 +19,8 @@ Users should be able to:
   - The email address is not formatted correctly
 
 ## Links
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Multi Step Form](https://multi-step-form-jec.vercel.app/)
+- [Solution URL](https://www.frontendmentor.io/solutions/multistep-form-D5l9BTExzS)
+- [Live Site URL - Multi Step Form](https://multi-step-form-jec.vercel.app/)
 
 ## Built with
 - JavaScript

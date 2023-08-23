@@ -26,8 +26,10 @@ Users should be able to:
 - JavaScript
 - TypeScript
 - [React](https://react.dev/)
+- Lib
+  - [Formik](https://formik.org/)
+  - [Yup](https://www.npmjs.com/package/yup)
+- [Vite](https://vitejs.dev/)
+- [ESlint](https://eslint.org/)
 - HTML
 - CSS
-- [Formik](https://formik.org/)
-- [Yup](https://www.npmjs.com/package/yup)
-- [Vite](https://vitejs.dev/)

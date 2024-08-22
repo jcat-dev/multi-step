@@ -1,6 +1,6 @@
 import { FormikErrors, FormikTouched } from 'formik'
 import { PersonalData } from '../types/PersonalData'
-import FormikInput from './Formik/FormikInput'
+import FormikInput from './formik/FormikInput'
 
 interface Props {
   errors: FormikErrors<PersonalData>

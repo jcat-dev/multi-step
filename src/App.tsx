@@ -1,5 +1,5 @@
 import FormProvider from './context/FormProvider'
-import FormikForm from './component/Formik/FormikForm'
+import FormikForm from './component/formik/FormikForm'
 import './styles/global.css'
 import './styles/container.css'
 

@@ -17,14 +17,28 @@ const FormikForm: React.FC = () => {
     phone: ''
   }
 
-  const validationSchema = Yup.object().shape({
+  const validationSchema = Yup.object({
     name: Yup.string()
+      .trim()
+      .strict()
       .required('This field is required'),
     email: Yup.string()
       .email()
-      .required('This field is required'),
+      .required('This field is required'),      
     phone: Yup.string()
+      .trim()
+      .strict()
       .required('This field is required')
+      .test(
+        'start-with-plus', 
+        'It does not start with "+"', 
+        (value) => value.startsWith('+')
+      )
+      .test(
+        'include-space',
+        'It does not include space (3)',
+        (value) => value.split(' ').length > 3
+      )
   })
 
   const handleSubmit = async (values: PersonalData, actions: FormikHelpers<PersonalData>) => {

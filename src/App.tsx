@@ -1,5 +1,5 @@
 import FormProvider from './context/FormProvider'
-import FormikForm from './component/formik/FormikForm'
+import Form from './component/Form'
 import './styles/global.css'
 import './styles/container.css'
 
@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <main className="container" >
       <FormProvider>
-        <FormikForm />
+        <Form />
       </FormProvider>
     </main>
   )

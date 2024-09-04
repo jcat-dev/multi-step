@@ -11,8 +11,8 @@ import styles from './styles/form.module.css'
 
 const Form: React.FC = () => {
   const {
-    planSummary,
-    complementsSummary
+    planSummary
+    //complementsSummary
   } = useContext(FormContext)
 
   const {
@@ -53,17 +53,10 @@ const Form: React.FC = () => {
 
   const handleSubmit = async (values: PersonalData, actions: FormikHelpers<PersonalData>) => {
     //send data to db
-    /* console.log(planSummary)
-    console.log(complementsSummary)
-    console.log(values) */
-  }
-  
-  const handleNextClick = () => {
-    return incrementCounter()  
-  }
-
-  const handlePrevClick = () => {
-    return decrementCounter()
+    //values
+    //planSummary
+    //complementsSummary
+    incrementCounter()
   }
   
   return (
@@ -76,57 +69,54 @@ const Form: React.FC = () => {
         <FormikForm
           className={styles['form']}
         >         
-          <div className={styles['form-sidebar']} >
-            <StepSidebar 
-              step={counter}
-            />    
-          </div>
+          <StepSidebar 
+            step={counter}
+          />    
 
-          <div className={styles['form-content']} >
+          <div className={styles['form-body']} >
             <FormContent 
               stepNumber={counter}
               errors={values.errors}
               touched={values.touched}
             />          
-          </div>
 
-          <div 
-            className={styles['form-btn' ]}
-            hidden={counter === (STEPS.length + 1)}
-          >          
-            <button 
-              className={styles['form-btn__prev']}
-              hidden={counter === 1}
-              onClick={handlePrevClick}
-              type="button"
-            >
-                Go Back
-            </button>
-              
-            <button 
-              className={`${styles['form-btn__next']} ${styles['form-btn__next--blue-bg']}`}
-              type="button"
-              onClick={() => handleNextClick()}
-              hidden={counter === STEPS.length}
-              disabled={
-                (counter === 2 && !Boolean(planSummary)) || (!values.dirty || !values.isValid) 
-              }
-            >
-              Next Step              
-            </button>
+            {
+              (counter !== (STEPS.length + 1)) && <div className={styles['form-btns' ]} >          
+                {
+                  (counter !== 1) && <button 
+                    className={`${styles['btn']} ${styles['prev-btn']}`}
+                    onClick={decrementCounter}
+                    type="button"
+                  >
+                  Go Back
+                  </button>
+                }
 
-            <button
-              className={`${'form-btn__next'} ${styles['form-btn__next--purple-bg']}`}
-              hidden={counter !== STEPS.length}          
-              type="submit"
-              onClick={
-                STEPS.length === counter 
-                  ? handleNextClick
-                  : undefined
-              }
-            >
-              Confirm
-            </button>
+                {
+                  (counter !== STEPS.length) && <button 
+                    className={`${styles['btn']} ${styles['next-btn']} ${styles['next-btn--blue-bg']}`}
+                    type="button"
+                    onClick={incrementCounter}
+                    disabled={
+                      counter === 1
+                        ? !values.dirty || Object.keys(values.errors).length >= 1
+                        : !Boolean(planSummary)
+                    }
+                  >
+                  Next Step              
+                  </button>
+                }
+
+                {
+                  (counter === STEPS.length) && <button
+                    className={`${styles['btn']} ${styles['next-btn']} ${styles['next-btn--purple-bg']}`}
+                    type="submit"
+                  >
+                  Confirm
+                  </button>
+                }
+              </div>
+            }
           </div>
         </FormikForm>  
       )}

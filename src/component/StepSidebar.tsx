@@ -1,5 +1,5 @@
 import { STEPS } from '../constants/STEPS'
-import '../styles/components/stepSidebar.css'
+import styles from './styles/stepSidebar.module.css'
 
 interface Props {
   step: number
@@ -7,28 +7,28 @@ interface Props {
 
 const StepSidebar: React.FC<Props> = ({step}) => {
   return (
-    <ul className="step-container" >
+    <ul className={styles['container']} >
       {
         STEPS.map((value, index, array) => (
           <li 
-            className="step" 
+            className={styles['step']} 
             key={index}
           >         
             <div className={
               step === (index + 1) 
-                ? 'step__number step__number--active'
+                ? `${styles['step-number']} ${styles['step-number--active']}`
                 : (step === (array.length + 1) && (index + 1) === array.length)
-                  ? 'step__number step__number--active'
-                  : 'step__number' }
-            >
+                  ? `${styles['step-number']} ${styles['step-number--active']}`
+                  : styles['step-number'] 
+            }>
               {index + 1}
             </div>
             
-            <div className="step__info" >
+            <div className={styles['step-info']} >
               STEP {index + 1}
             </div>
               
-            <div className="step__title" >
+            <div className={styles['step-title']} >
               {value.title}
             </div>            
           </li>

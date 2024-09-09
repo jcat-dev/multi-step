@@ -1,11 +1,11 @@
+import { PersonalData } from '../types/PersonalData'
+import { FormikErrors, FormikTouched } from 'formik'
 import FormInfo from './FormInfo'
 import FormPlan from './FormPlan'
 import FormSummary from './FormSummary'
 import thanksYouIcon from '../assets/images/icon-thank-you.svg'
 import FormComplement from './FormComplement'
-import { PersonalData } from '../types/PersonalData'
-import { FormikErrors, FormikTouched } from 'formik'
-import '../styles/components/formContent.css'
+import styles from './styles/formContent.module.css'
 
 interface Props {
   errors: FormikErrors<PersonalData>
@@ -16,16 +16,16 @@ interface Props {
 const FormContent: React.FC<Props> = ({errors, touched, stepNumber}: Props) => {
   if (stepNumber === 1) {
     return (  
-      <div className="content" >    
+      <div className={styles['content']} >    
         <FormInfo
           errors={errors}
           touched={touched}
         >
-          <h2 className="content-title" >
+          <p className={styles['content-title']} >
             Personal info
-          </h2>
+          </p>
 
-          <p className="content-info" > 
+          <p className={styles['content-info']} > 
             Please provide your name, email address, and phone number.
           </p>
         </FormInfo> 
@@ -33,15 +33,15 @@ const FormContent: React.FC<Props> = ({errors, touched, stepNumber}: Props) => {
     )
   }
 
-  if ( stepNumber === 2 ) {
+  if (stepNumber === 2) {
     return (      
-      <div className="content" >
+      <div className={styles['content']} >
         <FormPlan>
-          <h2 className="content-title" >
+          <p className={styles['content-title']} >
             Select your plan
-          </h2>
+          </p>
 
-          <p className="content-info" > 
+          <p className={styles['content-info']} > 
             You have the option of monthly or yearly billing.
           </p>
         </FormPlan>
@@ -49,15 +49,15 @@ const FormContent: React.FC<Props> = ({errors, touched, stepNumber}: Props) => {
     )
   }
 
-  if ( stepNumber === 3 ) {
+  if (stepNumber === 3) {
     return ( 
-      <div className="content" >
+      <div className={styles['content']} >
         <FormComplement>
-          <h2 className="content-title" >
+          <p className={styles['content-title']} >
             Pick add-ons
-          </h2>
+          </p>
 
-          <p className="content-info" > 
+          <p className={styles['content-info']} > 
             Add-ons help enhance your gaming experience.
           </p>
         </FormComplement>  
@@ -67,13 +67,13 @@ const FormContent: React.FC<Props> = ({errors, touched, stepNumber}: Props) => {
 
   if (stepNumber === 4) {
     return (
-      <div className="content" >
+      <div className={styles['content']} >
         <FormSummary>
-          <h2 className="content-title" >
+          <p className={styles['content-title']} >
             Finishing up
-          </h2>
+          </p>
 
-          <p className="content-info" > 
+          <p className={styles['content-info']} > 
             Double-check everything looks OK before confirming.
           </p>
         </FormSummary>
@@ -82,18 +82,18 @@ const FormContent: React.FC<Props> = ({errors, touched, stepNumber}: Props) => {
   }
 
   return (
-    <div className='content content--flex' >
+    <div className={`${styles['content']} ${styles['content--flex']}`} >
       <img 
         className='content-icon'
         src={thanksYouIcon} 
-        alt="thangs you icon" 
+        alt="thanks you icon" 
       />
 
-      <h2 className='content-title content-title--text-center' >
+      <p className={`${styles['content-title']} ${styles['content-title--text-center']}`} >
         Thank you!
-      </h2>
+      </p>
 
-      <p className='content-info content-info--text-center' >
+      <p className={`${styles['content-info']} ${styles['content-info--text-center']}`} >
         Thanks for confirming your subscription! We hope you have fun 
         using our platform. If you ever need support, please feel free 
         to email us at support@loremgaming.com.

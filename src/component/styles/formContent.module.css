@@ -1,14 +1,14 @@
 .content {
   width: 70%;
-  margin: 7% auto 1.4em auto;
-}
+  margin: 2em auto 1.4em auto;
 
-.content--flex {
-  height: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
+  &.content--flex {
+    height: 100%;
+  
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
 }
 
 .content-icon {
@@ -27,10 +27,10 @@
   color: var(--marineBlue-color);
   text-shadow: 0 0 1px var(--marineBlue-color);
   letter-spacing: 0.06em;
-}
 
-.content-title--text-center {
-  text-align: center;
+  &.content-title--text-center {
+    text-align: center;
+  }
 }
 
 .content-info {
@@ -38,25 +38,21 @@
   
   color: var(--coolGray-color);
   margin-bottom: 9%;
+
+  &.content-info--text-center {
+    text-align: center;
+    line-height: 1.5em;
+  }
 }
 
-.content-info--text-center {
-  text-align: center;
-  line-height: 1.5em;
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .content {
-    width: 92%;
-    height: max-content;
+    width: 90%;
+    margin: 0 auto;
     padding: min(1.95em, 8.25%) min(1.6em, 6.75%);
-    margin: 0;
 
     border-radius: 0.6em;
     background-color: var(--white-color);
-    position: absolute;
-    top: -16.5%;
-    right: 4%;
     box-shadow: 0 15px 30px -25px var(--coolGray-color);
   }
 

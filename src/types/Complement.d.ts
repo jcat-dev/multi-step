@@ -1,12 +1,12 @@
 import { PeriodWithPrice } from './Period'
 
-export interface PlanComplement {
+export interface Complement {
   id: string
   title: string 
   info: string[]
   periodWithPrice: PeriodWithPrice[]
 }
 
-export interface PlanComplementWithChecked extends PlanComplement {
+export interface ComplementWithChecked extends Complement {
   checked: boolean
 }

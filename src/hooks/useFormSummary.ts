@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react'
-import { complementAPI, planAPI } from '../utils/API'
+import { planAPI } from '../utils/planAPI'
+import { complementAPI } from '../utils/complementAPI'
 import { FormSummary } from '../types/FormSummary'
 import { Plan } from '../types/Plan'
-import { PlanComplement } from '../types/PlanComplement'
+import { Complement } from '../types/Complement'
 import { PERIOD_TYPES } from '../constants/PERIOD_TYPES'
 
 export const useFormSummary = () => { 
   const [summary, setSummary] = useState<FormSummary>()
   const [planSummary, setPlanSummary] = useState<Plan>()
-  const [complementsSummary, setComplementsSummary] = useState<PlanComplement[]>()
+  const [complementsSummary, setComplementsSummary] = useState<Complement[]>()
 
   useEffect(() => {
     const data = async () => {
       const planList: Plan[] = await planAPI
-      const complementList: PlanComplement[] = await complementAPI
+      const complementList: Complement[] = await complementAPI
 
       setSummary({
         period: PERIOD_TYPES.MONTHLY,

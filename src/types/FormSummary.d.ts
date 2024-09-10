@@ -1,8 +1,8 @@
 import { PlanWithChecked } from './Plan'
-import { PlanComplementWithChecked } from './PlanComplement'
+import { ComplementWithChecked } from './Complement'
 
 export interface FormSummary {
   period: string
   plans: PlanWithChecked[]
-  complements: PlanComplementWithChecked[]
+  complements: ComplementWithChecked[]
 } 

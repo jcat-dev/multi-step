@@ -1,11 +1,10 @@
 import FormProvider from './context/FormProvider'
 import Form from './component/Form'
-import './styles/global.css'
-import './styles/container.css'
+import './global.css'
 
 const App: React.FC = () => {
   return (
-    <main className="container" >
+    <main>
       <FormProvider>
         <Form />
       </FormProvider>

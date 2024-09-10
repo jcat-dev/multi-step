@@ -1,4 +1,4 @@
-.input-container {
+.container {
   width: 100%;
   margin-bottom: 1.4em;
 
@@ -23,29 +23,27 @@
 
 .input {
   width: 100%;
+  height: 3em;
   padding: 3%;
   border: none;
 
   outline: 1px solid var(--lightGray-color);
   border-radius: 0.5em;
   font-weight: 700;
-  font-size: 1.1em;
   color: inherit;
-  font-family: inherit;
+
+  &.input--error {
+    color: var(--strawberryRed-color);
+    outline: 1px solid var(--strawberryRed-color);
+  }
 }
 
 .input:focus {
   outline: 1px solid var(--purplishBlue-color);
-  cursor: pointer;
-}
-
-.input--error {
-  color: var(--strawberryRed-color);
-  outline: 1px solid var(--strawberryRed-color);
 }
 
 @media screen and (max-width: 767px) {
-  .input-container {
+  .container {
     font-size: 0.85em;
   }
 

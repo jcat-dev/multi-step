@@ -16,8 +16,9 @@ const FormInfo: React.FC<Props> = ({errors, touched, children}) => {
       }
 
       <FormikInput 
-        id="name"
-        title="Name"
+        id="nameID"
+        name='name'
+        labelTitle="Name"
         errorMsg={Boolean(errors.name) && Boolean(touched.name)}
         type="text"
         placeholder="e.g. Stephen King" 
@@ -25,8 +26,9 @@ const FormInfo: React.FC<Props> = ({errors, touched, children}) => {
       />
 
       <FormikInput 
-        id="email"
-        title="Email Address"
+        id="emailID"
+        name='email'
+        labelTitle="Email Address"
         type="email"
         placeholder="e.g. stephenking@lorem.com"
         errorMsg={Boolean(errors.email) && Boolean(touched.email)}
@@ -34,8 +36,9 @@ const FormInfo: React.FC<Props> = ({errors, touched, children}) => {
       />
 
       <FormikInput 
-        id="phone"
-        title="Phone Number"
+        id="phoneID"
+        name='phone'
+        labelTitle="Phone Number"
         errorMsg={Boolean(errors.phone) && Boolean(touched.phone)}
         type="tel"
         placeholder="e.g. +1 234 567 890"

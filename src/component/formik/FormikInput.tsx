@@ -1,40 +1,40 @@
 import { Field, ErrorMessage } from 'formik'
-import '../../styles/components/formik/formikInput.css'
+import { InputHTMLAttributes } from 'react'
+import styles from './formikInput.module.css'
 
-interface Props {
-  id: string
-  title: string
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  labelTitle: string
   errorMsg: boolean
-  type: string
-  autoComplete: string
-  placeholder?: string
+  name: string
 }
 
 const FormikInput: React.FC<Props> = (props) => {
+  const {
+    labelTitle,
+    errorMsg,
+    ...rest
+  } = props
+
   return (
-    <div className="input-container">
+    <div className={styles['container']}>
       <label 
-        className="label"
-        htmlFor={props.id}
+        className={styles['label']}
+        htmlFor={rest.id}
       >          
-        {props.title}
+        {labelTitle}
       </label>
         
-      <div className="error-msg" >
-        <ErrorMessage name={props.id} />
+      <div className={styles['error-msg']} >
+        <ErrorMessage name={rest.name} />
       </div>
       
       <Field 
         className={
-          props.errorMsg 
-            ? 'input input--error'
-            : 'input' 
+          errorMsg 
+            ? `${styles['input']} ${styles['input--error']}`
+            : styles['input']
         }
-        name={props.id}
-        type={props.type}
-        placeholder={props.placeholder}
-        autoComplete={props.autoComplete}
-        id={props.id}
+        {...rest}
       />
     </div>
   )

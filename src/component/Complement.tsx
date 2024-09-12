@@ -1,5 +1,5 @@
 import checkIcon from '../assets/images/icon-checkmark.svg'
-import '../styles/components/complement.css'
+import styles from './styles/complement.module.css'
 
 interface Props {
   title: string
@@ -14,39 +14,41 @@ const Complement: React.FC<Props> = ({title, info, price, checked, handleCheckCl
     <div 
       className={
         checked 
-          ? 'complement complement--active'
-          : 'complement'
+          ? `${styles['complement']} ${styles['complement--active']}`
+          : styles['complement']
       } 
       onClick={handleCheckClick}
     >
       <img 
         className={
           checked
-            ? 'complement-check complement-check--active'
-            : 'complement-check'
+            ? `${styles['complement-check']} ${styles['complement-check--active']}`
+            : styles['complement-check']
         }
         src={checkIcon} 
         alt="check icon" 
       />
 
-      <div className="complement-text" >
-        <h3 className="complement-text__title" >
+      <div className={styles['complement-box']} >
+        <p className={styles['complement-title']} >
           {title}
-        </h3>
+        </p>
 
-        {
-          info.map((value, index) => (
-            <p 
-              key={index}
-              className="complement-text__info" 
-            >
-              {value}
-            </p>
-          ))
-        }
+        <ul>
+          {
+            info.map((value, index) => (
+              <li 
+                key={index}
+                className={styles['complement-info']} 
+              >
+                {value}
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
-      <div className="complement-price" >
+      <div className={styles['complement-price']} >
         {price}
       </div>
     </div>

@@ -10,34 +10,40 @@
 
   color: var(--marineBlue-color);
   font-weight: 700;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "title price"
+    "changeBtn price";    
 }
 
-.summary-plan__info {
+.summary-plan__title {
+  grid-area: title;
   text-transform: capitalize;
 }
 
-.summary-plan__info-title {
-  margin-bottom: 4%;
-}
-
 .summary-plan__change-btn {
+  grid-area: changeBtn;
+  width: fit-content;
+  margin-right: auto;
+
   background-color: inherit;
   color: var(--coolGray-color);
   text-decoration: underline;
   font-size: 0.9em;
-  cursor: pointer;
-}
-
-.summary-plan__change-btn:hover {
-  color: var(--purplishBlue-color);
-}
-
-.summary-plan__total {
   
+  &:hover {
+    cursor: pointer;
+    color: var(--purplishBlue-color);
+  }
+}
+
+.summary-plan__price {
+  grid-area: price;
+  width: fit-content;
+  margin-left: auto;
 }
 
 .summary-complement {
@@ -62,20 +68,13 @@
   background-color: var(--white-color);
   display: flex;
   justify-content: space-between;
-}
-
-.summary-total__period {
-  height: fit-content;
-  margin-top: auto;
-
-  font-size: 0.9em;
+  align-items: flex-end;
 }
 
 .summary-total__price {
   font-size: 1.25em;
   font-weight: 700;
   color: var(--purplishBlue-color);
-  
 }
 
 @media screen and (max-width: 767px) {

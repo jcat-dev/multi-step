@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { FormContext } from '../context/FormProvider'
-import '../styles/components/formSummary.css'
+import { PERIOD_TYPES } from '../constants/PERIOD_TYPES'
+import styles from './styles/formSummary.module.css'
 
 interface Props {
   children: React.ReactNode
@@ -11,7 +12,7 @@ const FormSummary: React.FC<Props> = ({children}) => {
     period,
     planSummary,
     complementsSummary,
-    getTotalSummary,
+    totalSummary,
     changePeriodSummary
   } = useContext(FormContext)
   
@@ -23,66 +24,49 @@ const FormSummary: React.FC<Props> = ({children}) => {
         children
       }
       
-      <div className="summary" >
-        <div className="summary-plan" >
-          <div className="summary-plan__info" >
-            <div className="summary-plan__info-title">              
-              {                
-                `${planSummary?.title} (${period})`
-              }
-            </div>
+      <div className={styles['summary']} >
+        <p className={styles['summary-plan']} >
+          <span className={styles['summary-plan__title']} >              
+            {`${planSummary?.title} (${period})`}
+          </span>
 
-            <button
-              className="summary-plan__change-btn"
-              onClick={handleChangeBtnClick}
-              type='button'
-            >
+          <button
+            className={styles['summary-plan__change-btn']}
+            onClick={handleChangeBtnClick}
+            type='button'
+          >
               Change
-            </button>
-          </div>
+          </button>
           
-          <div className="summary-plan__total" >
-            {
-              `$${planSummary?.periodWithPrice[0].price}/${period.slice(0, 2)}`
-            }
-          </div>
-                        
-        </div>
+          <span className={styles['summary-plan__price']} >            
+            {`$${planSummary?.periodWithPrice[0].price}/${period.slice(0, 2)}`}   
+          </span>                     
+        </p>
 
-        <ul className="summary-complement">
+        <ul className={styles['summary-complement']} >
           {
             complementsSummary?.map((value) => (
               <li 
                 key={value.id}
-                className='summary-complement__item'
+                className={styles['summary-complement__item']}
               >
-                <div className='summary-complement__item-title'>
-                  {
-                    value.title
-                  } 
-                </div>
+                {value.title} 
 
-                <div className='summary-complement__item-price' >
-                  {
-                    `+$${value.periodWithPrice[0].price}/${period.slice(0, 2)}`
-                  }
-                </div>
+                <span className={styles['summary-complement__item-price']} >
+                  {`+$${value.periodWithPrice[0].price}/${period.slice(0, 2)}`}
+                </span>
               </li>
             ))
           }
         </ul>
 
-        <div className="summary-total" >
-          <div className='summary-total__period' >
-            Total (per {period === 'monthly' ? 'month' : 'year'})
-          </div>
+        <p className={styles['summary-total']} >
+          Total (per {period === PERIOD_TYPES.MONTHLY ? 'month' : 'year'})
 
-          <div className='summary-total__price' >
-            {
-              `+$${getTotalSummary()}/${period.slice(0, 2)}`
-            }
-          </div>
-        </div>
+          <span className={styles['summary-total__price']} >
+            {`+$${totalSummary}/${period.slice(0, 2)}`}
+          </span>
+        </p>
       </div>
     </>
   )

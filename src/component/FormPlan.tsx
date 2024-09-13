@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { FormContext } from '../context/FormProvider'
 import { PERIOD_TYPES } from '../constants/PERIOD_TYPES'
-import '../styles/components/formPlan.css'
+import styles from './styles/formPlan.module.css'
 
 interface Props {
   children: React.ReactNode
@@ -15,94 +15,85 @@ const FormPlan: React.FC<Props> = ({children}) => {
     changePeriodSummary
   } = useContext(FormContext)
 
-  const handleSwitchClick = () => changePeriodSummary()
-  const handlePeriodClick = (period: string) => changePeriodSummary(period)
-  const handlePlanClick = (id: string) => updatePlan(id)
-
   return (
     <>
       {
         children
       }
 
-      <div className="plan">
+      <ul className={styles['plan']} >
         {
           plans.map((value) => (
-            <div 
+            <li 
               key={value.id}
               className={
                 value.checked 
-                  ? 'plan-card plan-card--active'
-                  : 'plan-card'
+                  ? `${styles['plan-card']} ${styles['plan-card--active']}`
+                  : styles['plan-card']
               }
-              onClick={() => handlePlanClick(value.id)} 
+              onClick={() => updatePlan(value.id)} 
             >
               <img 
-                className="plan-card__icon" 
+                className={styles['plan-card__icon' ]}
                 src={value.img} 
                 alt="arcade icon" 
               />
 
-              <h3 className="plan-card__title">
+              <p className={styles['plan-card__title']} >
                 {value.title}
-              </h3>   
+              </p>   
 
-              <div className='plan-card__info' >
+              <div className={styles['plan-card__info']} >                                 
+                <p className={styles['plan-card__total-price']} >
+                  {value.periodWithPrice.find((value) => value.period === period)?.price}/
+                  {value.periodWithPrice.find((value) => value.period === period)?.period.slice(0, 2)}                
+                </p>
+
                 {
-                  value.periodWithPrice.filter((value) => value.period === period)
-                    .map((value, index) => (
-                      <div 
-                        key={index}
-                        className="plan-card__total-price"
-                      >
-                        ${value.price}/{value.period.slice(0, 2)}                
-                      </div>
-                    ))               
+                  period === PERIOD_TYPES.YEARLY && <p className={styles['plan-card__months-free']} >
+                    2 months free
+                  </p>
                 }
-
-                <div 
-                  className='plan-card__months-free' 
-                  hidden={period === 'monthly'}  
-                >
-                  2 months free
-                </div>
               </div>
-            </div>          
+            </li>          
           ))
-        }
+        }        
+      </ul>
 
-        <div className="plan-select" >        
-          <div 
-            className={
-              period === 'monthly' 
-                ? 'plan-select__monthly plan-select__monthly--active'
-                : 'plan-select__monthly'
-            }
-            onClick={() => handlePeriodClick(PERIOD_TYPES.MONTHLY)}
-          >
-            Monthly
-          </div>
+      <div className={styles['plan-select']} >        
+        <button 
+          className={
+            period === PERIOD_TYPES.MONTHLY 
+              ? `${styles['plan-select__btn-monthly']} ${styles['plan-select__btn-monthly--active']}`
+              : styles['plan-select__btn-monthly']
+          }
+          type='button'
+          onClick={() => changePeriodSummary(PERIOD_TYPES.MONTHLY)}
+        >
+          Monthly
+        </button>
 
-          <div
-            className={
-              period === 'monthly'
-                ? 'plan-select__switch plan-select__switch--monthly'
-                : 'plan-select__switch plan-select__switch--yearly'
-            }
-            onClick={handleSwitchClick}
-          />
+        <button 
+          className={
+            period === PERIOD_TYPES.MONTHLY
+              ? `${styles['plan-select__btn-switch']} ${styles['plan-select__btn-switch--monthly']}`
+              : `${styles['plan-select__btn-switch']} ${styles['plan-select__btn-switch--yearly']}`
+          }
+          type='button'
+          onClick={() => changePeriodSummary()}
+        />
 
-          <div 
-            className={
-              period === 'yearly'
-                ? 'plan-select__yearly plan-select__yearly--active'
-                : 'plan-select__yearly'
-            }
-            onClick={() => handlePeriodClick(PERIOD_TYPES.YEARLY)}
-          >
-            Yearly
-          </div>
-        </div>
+        <button 
+          className={
+            period === PERIOD_TYPES.YEARLY
+              ? `${styles['plan-select__btn-yearly']} ${styles['plan-select__btn-yearly--active']}`
+              : styles['plan-select__btn-yearly']
+          }
+          type='button'
+          onClick={() => changePeriodSummary(PERIOD_TYPES.YEARLY)}
+        >
+          Yearly
+        </button>
       </div>
     </>
   )

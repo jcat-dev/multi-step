@@ -180,6 +180,6 @@ export const useFormSummary = () => {
     changePeriodSummary,
     updatePlan,
     updateComplement,
-    getTotalSummary
+    totalSummary: getTotalSummary()
   }
 }

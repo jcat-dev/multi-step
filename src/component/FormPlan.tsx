@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { FormContext } from '../context/FormProvider'
 import { PERIOD_TYPES } from '../constants/PERIOD_TYPES'
+import { useFormSummaryContext } from '../context/useFormSummaryContext'
 import styles from './styles/formPlan.module.css'
 
 interface Props {
@@ -13,7 +12,7 @@ const FormPlan: React.FC<Props> = ({children}) => {
     plans,
     updatePlan,
     changePeriodSummary
-  } = useContext(FormContext)
+  } = useFormSummaryContext()
 
   return (
     <>

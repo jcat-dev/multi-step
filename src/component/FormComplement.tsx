@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { FormContext } from '../context/FormProvider'
+import { useFormSummaryContext } from '../context/useFormSummaryContext'
 import Complement from './Complement'
 
 interface Props {
@@ -11,7 +10,7 @@ const FormComplement: React.FC<Props> = ({children}) => {
     period,
     complements,
     updateComplement    
-  } = useContext(FormContext)
+  } = useFormSummaryContext()
 
   const handleCheckClick = (id: string) => {
     updateComplement(id)

@@ -1,13 +1,10 @@
-import FormProvider from './context/FormProvider'
-import Form from './component/Form'
+import FormSummaryProvider from './context/FormSummaryProvider'
 import './global.css'
 
 const App: React.FC = () => {
   return (
     <main>
-      <FormProvider>
-        <Form />
-      </FormProvider>
+      <FormSummaryProvider />
     </main>
   )
 }

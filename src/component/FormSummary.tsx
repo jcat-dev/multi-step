@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { FormContext } from '../context/FormProvider'
 import { PERIOD_TYPES } from '../constants/PERIOD_TYPES'
+import { useFormSummaryContext } from '../context/useFormSummaryContext'
 import styles from './styles/formSummary.module.css'
 
 interface Props {
@@ -14,7 +13,7 @@ const FormSummary: React.FC<Props> = ({children}) => {
     complementsSummary,
     totalSummary,
     changePeriodSummary
-  } = useContext(FormContext)
+  } = useFormSummaryContext()
   
   const handleChangeBtnClick = () => changePeriodSummary()
   

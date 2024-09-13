@@ -1,19 +1,18 @@
-import FormContent from './FormContent'
-import StepSidebar from './StepSidebar'
-import { useContext } from 'react'
-import { FormContext } from '../context/FormProvider'
+import { useFormSummaryContext } from '../context/useFormSummaryContext'
 import { useCounter } from '../hooks/useCounter'
 import { Formik, Form as FormikForm, FormikHelpers } from 'formik'
 import { PersonalData } from '../types/PersonalData'
 import { STEPS } from '../constants/STEPS'
 import * as Yup from 'yup'
+import FormContent from './FormContent'
+import StepSidebar from './StepSidebar'
 import styles from './styles/form.module.css'
 
 const Form: React.FC = () => {
   const {
     planSummary
     //complementsSummary
-  } = useContext(FormContext)
+  } = useFormSummaryContext()
 
   const {
     counter,

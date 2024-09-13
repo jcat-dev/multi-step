@@ -9,8 +9,8 @@ export const FormContext = createContext<UseFormSummary>({
   complements: [],
   planSummary: undefined,
   complementsSummary: undefined,
+  totalSummary: 0,
   changePeriodSummary: () => {},
-  getTotalSummary: () => 0,
   updatePlan: () => {},
   updateComplement: () => {}
 })
